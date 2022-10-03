@@ -86,7 +86,7 @@ void app_main(void)
 
 
 	xTaskCreatePinnedToCore(Task1_RFID_and_Publishing,                                          //Task Handler / Funtion
-							"This read Cards and Publish data to MQTT broker",					//Task description
+							"This read Cards and Publish data to the MQTT broker",					//Task description
 							2048,                        										//Stack Size for Task
 							NULL,																//Parameter to Task
 							2,																	//Task Priority
@@ -94,7 +94,7 @@ void app_main(void)
 							0);																	// Core ID
 
 	xTaskCreatePinnedToCore(Task2_Subscription,			                                        //Task Handler / Funtion
-							"Its gets data from the broker",										//Task description
+							"Its gets data from broker",										//Task description
 							2048,                        										//Stack Size for Task
 							NULL,																//Parameter to Task
 							1,																	//Task Priority
