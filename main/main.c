@@ -121,20 +121,20 @@ void Task1_RFID_and_Publishing()
 					{
 						if(TM_MFRC522_Compare(CardID, Users[i].card_id) == MI_OK)
 							{
-									if(Prev_ID_check(Users[i].card_id ,Prev_ID ) == 0)
-										{
-											esp_mqtt_client_publish(client, PUB_ATTENDANCE_TOPIC, Users[i].EMI_id , 0, 2, 0);
-											all_good(Users[i].name);
-											for(uint8_t j = 0 ; j < 5 ; j++)
-												{
-													Prev_ID[j] = Users[i].card_id[j];
-													printf("%x " , Prev_ID[j]);
-												}
-										}
-									else if(Prev_ID_check(Prev_ID , Users[i].card_id) == 1)
-										{
-											Display_Nextion("t4", "Remove your Card");
-										}
+								if(Prev_ID_check(Users[i].card_id ,Prev_ID ) == 0)
+									{
+										esp_mqtt_client_publish(client, PUB_ATTENDANCE_TOPIC, Users[i].EMI_id , 0, 2, 0);
+										all_good(Users[i].name);
+										for(uint8_t j = 0 ; j < 5 ; j++)
+											{
+												Prev_ID[j] = Users[i].card_id[j];
+												printf("%x " , Prev_ID[j]);
+											}
+									}
+								else if(Prev_ID_check(Prev_ID , Users[i].card_id) == 1)
+									{
+										Display_Nextion("t4", "Remove your Card");
+									}
 								break;
 							}
 						else if ((i == (COMPANYSIZE-1)) && (TM_MFRC522_Compare(CardID, Users[i].card_id) != MI_OK))
