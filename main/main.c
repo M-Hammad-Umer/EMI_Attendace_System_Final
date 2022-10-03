@@ -94,7 +94,7 @@ void app_main(void)
 							0);																	// Core ID
 
 	xTaskCreatePinnedToCore(Task2_Subscription,			                                        //Task Handler / Funtion
-							"Its gets data from broker",										//Task description
+							"Its gets data from the broker",										//Task description
 							2048,                        										//Stack Size for Task
 							NULL,																//Parameter to Task
 							1,																	//Task Priority
