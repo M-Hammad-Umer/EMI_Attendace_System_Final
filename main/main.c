@@ -150,21 +150,21 @@ void Task1_RFID_and_Publishing()
 					{
 						no_card_state();
 							for(uint8_t i = 0 ; i < 5 ; i++ )
-								{
-									Prev_ID[i] = 0x00;
-								}
+							     {
+							           Prev_ID[i] = 0x00;
+							     }
 							if(j == 3000000000)
-							{
-								rc522_start(start_args);
-							}
+							     {
+							           rc522_start(start_args);
+							     }
 							else if(TM_MFRC522_Check(CardID) == MI_OK)
-								{
-									break;
-								}
+							     {
+							           break;
+							     }
 							else
-								{
-									j++;
-								}
+							     {
+							           j++;
+							     }
 					}
 			}
 	}
@@ -173,11 +173,11 @@ void Task1_RFID_and_Publishing()
 
 void Task2_Subscription()
 {
-	while(1)
-	{
-			esp_mqtt_client_subscribe(client, SUB_TIME_TOPIC, 2);
-			vTaskDelay(5000/portTICK_PERIOD_MS);
-	}
+     while(1)
+          {
+	        esp_mqtt_client_subscribe(client, SUB_TIME_TOPIC, 2);
+	        vTaskDelay(5000/portTICK_PERIOD_MS);
+	  }
 
 }
 
